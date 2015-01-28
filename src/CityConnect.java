@@ -51,6 +51,7 @@ public class CityConnect {
 	private static final String WELCOME_MESSAGE = "Welcome to SimpleRouteStore!";
 	private static final String MESSAGE_NO_SPACE = "No more space to store locations";
 	private static final String MESSAGE_ENTER = "Enter command:";
+	private static final String MESSAGE_UNSUPPORTED = "Unrecognized command type";
 
 	// These are the possible command types
 	enum COMMAND_TYPE {
@@ -71,9 +72,11 @@ public class CityConnect {
 	private static final int PARAM_POSITION_START_LOCATION = 0;
 	private static final int PARAM_POSITION_END_LOCATION = 1;
 	private static final int PARAM_POSITION_DISTANCE = 2;
+	private static final int routeNumber = 10;
+	private static final int paramNumber = 3;
 
 	// This array will be used to store the routes
-	private static String[][] route = new String[10][3];
+	private static String[][] route = new String[routeNumber][paramNumber];
 
 	/*
 	 * These are the locations at which various components of the route will be
@@ -144,7 +147,7 @@ public class CityConnect {
 			System.exit(0);
 		default:
 			//throw an error if the command is not recognized
-			throw new Error("Unrecognized command type");
+			throw new Error(MESSAGE_UNSUPPORTED);
 		}
 		/*
 		 * ==============NOTE TO STUDENTS======================================
